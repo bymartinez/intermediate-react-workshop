@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, BrowserRouter } from "react-router-dom";
+// import pages
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Layout from "./Layout";
 
-const Home = () => {
-  return (
-    <div>
-      <h1>I'm the home</h1>
-    </div>
-  );
-}
-
-const About = () => {
-  return (
-    <div>
-      <h2>I'm the about page</h2>
-    </div>
-  );
-};
-
-const App = () => {
-  return <Home />;
-}
+const App = () => (
+  <BrowserRouter>
+    <Route path='my-app' component={Layout}>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/about" component={About}  />
+    </Route>
+  </BrowserRouter>
+);
 
 export default App;
