@@ -1,3 +1,24 @@
+# Intermediate React Workshop
+
+For move into the different parts of the workshop use this commands:
+
+## React Router
+
+### `git checkout react-router`
+
+## Forms
+### `git checkout forms`
+
+## HTTP Services
+### `git checkout http`
+
+## React Context
+### `git checkout context`
+
+## Deploy
+### `git checkout deploy`
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +87,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
