@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <h1>My Page</h1>
-      <Link to='/home'>Home</Link>
+      <Link to='/'>Home</Link>
       <Link to='/about'>About</Link>
       <hr />
       {children}

@@ -7,10 +7,10 @@ import Layout from "./Layout";
 
 const App = () => (
   <BrowserRouter>
-    <Route path='my-app' component={Layout}>
+    <Layout>
       <Route exact path="/" component={Home} />
-      <Route exact path="/about" component={About}  />
-    </Route>
+      <Route exact path="/about" component={About} />
+    </Layout>
   </BrowserRouter>
 );
 
