@@ -1,58 +1,38 @@
 import React from 'react';
+import axios from 'axios';
 
 // controlled component
-// class CreateForm extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       title: '',
-//       body: '',
-//     }
-//   }
-
-//   onChangeTitle = (event) => {
-//     this.setState({
-//       title: event.target.value,
-//     });
-//   }
-
-//   onChangeBody = (event) => {
-//     this.setState({
-//       body: event.target.value,
-//     });
-//   }
-
-//   save = (event) => {
-//     event.preventDefault();
-//     console.log(this.state);
-//   }
-
-//   render() {
-//     return (
-//       <form>
-//         <label htmlFor='title'>Title</label>
-//         <input
-//           id='title'
-//           type='text'
-//           onChange={this.onChangeTitle} />
-//         <br />
-        
-//         <label htmlFor='body'>Body</label>
-//         <textarea id='body' onChange={this.onChangeBody}></textarea>
-
-//         <button onClick={this.save}>Save</button>
-//       </form>
-//     );
-//   }
-// }
-
-// uncontrolled form
 class CreateForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      body: '',
+    }
+  }
+
+  onChangeTitle = (event) => {
+    this.setState({
+      title: event.target.value,
+    });
+  }
+
+  onChangeBody = (event) => {
+    this.setState({
+      body: event.target.value,
+    });
+  }
 
   save = (event) => {
     event.preventDefault();
-    console.log(this.title.value);
-    console.log(this.body.value);
+    axios
+      .post('https://jsonplaceholder.typicode.com/posts', this.state)
+      .then(response => {
+        console.log('Saved!');
+      })
+      .catch(err => {
+        alert('Error al guardar el post!');
+      });
   }
 
   render() {
@@ -62,17 +42,17 @@ class CreateForm extends React.Component {
         <input
           id='title'
           type='text'
-          ref={(title) => this.title = title}
-          defaultValue='' />
+          onChange={this.onChangeTitle} />
         <br />
         
         <label htmlFor='body'>Body</label>
-        <textarea id='body' defaultValue='' ref={(body) => this.body = body}></textarea>
+        <textarea id='body' onChange={this.onChangeBody}></textarea>
 
         <button onClick={this.save}>Save</button>
       </form>
     );
   }
 }
+
 
 export default CreateForm;
